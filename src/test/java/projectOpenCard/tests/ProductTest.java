@@ -8,7 +8,10 @@ import projectOpenCard.utilities.DriverThreadLocal;
 
 public class ProductTest {
 
-
+    @Test
+    public void deneme () {
+            System.out.println("Demene");
+    }
 
 
 
