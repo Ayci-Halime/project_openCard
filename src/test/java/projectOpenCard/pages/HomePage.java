@@ -26,6 +26,30 @@ public class HomePage {
     @FindBy(linkText = "Components")
     public WebElement components;
 
+    @FindBy( tagName= "h2")
+    public WebElement dogrulamaMesaji;
+
+    @FindBy(linkText="Show All Desktops")
+    public WebElement showAllDesktops;
+
+
+    @FindBy(linkText="Tablets")
+    public WebElement tablets;
+
+    @FindBy(linkText="Software")
+    public WebElement software;
+
+    @FindBy(linkText="Phones & PDAs")
+    public WebElement phonesAndPDAs;
+
+    @FindBy(linkText="Cameras")
+    public WebElement cameras;
+
+    @FindBy(linkText="MP3 Players")
+    public WebElement mp3Players;
+
+
+
 
 
 
