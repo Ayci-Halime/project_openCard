@@ -17,7 +17,7 @@ public class HomePage {
     public List<WebElement> ustMenu;
     //List donduruyor; 1.index ecount 2.index wishlist 3.index shoppingCart
 
-    @FindBy(linkText = "//a[text()='Desktops']")
+    @FindBy(xpath = "//a[text()='Desktops']")
     public WebElement desktops;
 
     @FindBy(linkText = "Laptops & Notebooks")
@@ -29,7 +29,7 @@ public class HomePage {
     @FindBy( tagName= "h2")
     public WebElement dogrulamaMesaji;
 
-    @FindBy(linkText="/a[text()='Show All Desktops']")
+    @FindBy(xpath="//a[text()='Show All Desktops']")
     public WebElement showAllDesktops;
 
 
