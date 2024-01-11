@@ -46,5 +46,44 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+<!--                                        <parallel>true</parallel>-->
+<!--                                        <threadCount>2</threadCount>-->
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+
+                    <!--
+                    <suiteXmlFiles>
+                         Buraya çalıştırılacak XML dosyanın yolunu belirtiyorum
+                    <suiteXmlFile>src/test/java/clarusway/tests/testNG06/tasks/HWDataProviderParallelTest.xml</suiteXmlFile>
+
+                </suiteXmlFiles> -->
+
+<!--                                        <suiteXmlFiles>-->
+<!--                                            <suiteXmlFile>paralelRegisterProductTest.xml</suiteXmlFile>-->
+<!--                                        </suiteXmlFiles>-->
+
+                    <!-- Spesifik olarak çalıştırılmak istenen class dosyasını buraya belirtiyorum. include yaparak -->
+                    <includes>
+                        <include>projectOpenCard/tests/ProductTest.java</include>
+                    </includes>
+
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
