@@ -24,7 +24,7 @@ public class ProductPage {
     @FindBy(linkText = "Show All Desktops")
     public WebElement showAllDesktops;   // hover ile buraya gelip tıkla
 
-    @FindBy(tagName = "h4")
+    @FindBy(xpath = "//div[@class='image']")
     public List<WebElement> allProductsName;  // liste şeklinde 12 tane ürünün isimlerine tıklama yaparak ürünün sayfasına girebiliriz
 
 
@@ -59,11 +59,11 @@ public class ProductPage {
     public WebElement qtyFieldInProduct;  // bu locate ile ürünü adedini seçebiliriz
 
     @FindBy(xpath = "//button[@id='button-cart']")
-    public WebElement addToCartButtonInProduct;
+    public WebElement addToCartButtonInProduct; // bu locate ile ürünü alışveriş sepetine ekleriz
 
 
-    @FindBy(xpath = "(//a[@data-toggle='tab'])[2]")
-    public WebElement reviewsSection;
+    @FindBy(xpath = "//a[@data-toggle='tab']")
+    public List<WebElement> reviewsSection;
 
 
     @FindBy(linkText = "Write a review")  // add to cart butonun altındaki write a review locate
@@ -77,45 +77,88 @@ public class ProductPage {
     @FindBy(xpath = "//textarea[@id='input-review']")
     public WebElement textFieldInReviews;
 
+    @FindBy(xpath = "//div[@id='review']//following::div")
+    public WebElement errorMessageInReview;
 
-    @FindBy(xpath = "//input[@value='1']")
-    public WebElement ratingRadioButton1; //rating radio button daki ilk seçenek
 
-    @FindBy(xpath = "//input[@value='2']")
-    public WebElement ratingRadioButton2; //rating radio button daki ikinci seçenek
 
-    @FindBy(xpath = "//input[@value='3']")
-    public WebElement ratingRadioButton3;  //rating radio button daki üçüncü seçenek
 
-    @FindBy(xpath = "//input[@value='4']")
-    public WebElement ratingRadioButton4;  //rating radio button daki dördüncü seçenek
+    @FindBy(xpath = "//input[@name='rating']")
+    public List<WebElement> ratingRadioButtons; //Liste olarak 5 tane buton seçeneği dönüyor
 
-    @FindBy(xpath = "//input[@value='5']")
-    public WebElement ratingRadioButton5;  //rating radio button daki beşinci seçenek
+
 
     @FindBy(xpath = "//button[@id='button-review']")
     public WebElement continueButtonInReview;
 
 
-    @FindBy(xpath = "//div[@id='review']//following::div")
+    @FindBy(xpath = "//div[text()=' Thank you for your review. It has been submitted to the webmaster for approval.']")
     public WebElement reviewConfirmationText;  // bu locate'in text ini al. "submitted" içerip içermediğini kontrol et
 
 
-    @FindBy(xpath = "(//a[@data-toggle='tab'])[2]")
-    public WebElement viewAllReviews;  // bu locate ile yazılan bütün yorumları confirm et. Eğer .contains("0") ise yazılan yorumlar gözükmüyor demektir
+    @FindBy(xpath = "//a[@data-toggle='tab']")
+    public List<WebElement> viewAllReviews;  // bu locate ile yazılan bütün yorumları confirm et. Eğer .contains("0") ise yazılan yorumlar gözükmüyor demektir
 
 
     @FindBy(xpath = "(//ul[@class='list-unstyled'])[8]/child::li")
     public List<WebElement> stockAvailability;  // Liste'nin size'ını alalım. Eğer size 4 ise, 4 üncü eleman; 3 ise 3'üncü eleman bize stok durumunu bildirir.
 
 
-    public void showAllDesktops(WebDriver driver) {
+    public void showAllDesktopMethod(WebDriver driver) {
 
         Actions actions = new Actions(driver);
         actions.moveToElement(desktops).perform();
         actions.click(showAllDesktops).perform();
 
+    }
+
+    public void selectProductMethod (int i) {
+        allProductsName.get(i).click();  // bütün ürünler listede olduğu için, bu metod ile istenilen ürüne tıklama yapılabilir
 
     }
+
+    public void addToCartMethod (int i) {
+        addToCartButton.get(i).click();  // cart butonları liste de olduğu için, metod ile istenilen indexteki ürüne ait butona tıklanabilir
+
+    }
+
+    public void addToWishListMethod (int i) {
+       addToWishlistButton.get(i).click(); // wish butonları liste de olduğu için, metod ile istenilen indexteki ürüne ait butona tıklanabilir
+
+    }
+
+    public void compareProductMethod (int i) {
+        compareButton.get(i).click(); // compare butonları liste de olduğu için, metod ile istenilen indexteki ürüne ait butona tıklanabilir
+
+    }
+
+    public void clickOnRatingRadioButtonMethod(int i) {
+        ratingRadioButtons.get(i).click();
+
+    }
+
+    public void clickOnReviewSectionMethod() {
+        if(reviewsSection.size() == 3) {
+            reviewsSection.get(2).click();
+        }
+        if (reviewsSection.size() == 2) {
+            reviewsSection.get(1).click();
+        }
+    }
+
+    public WebElement viewAllReviewsMethod() {
+        WebElement element = null;
+        if(viewAllReviews.size() == 3) {
+            viewAllReviews.get(2).click();
+            element = viewAllReviews.get(2);
+        }
+        if (viewAllReviews.size() == 2) {
+            viewAllReviews.get(1).click();
+            element = viewAllReviews.get(1);
+        }
+        return element;
+    }
+
+
 
 }
