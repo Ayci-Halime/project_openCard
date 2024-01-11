@@ -1,10 +1,12 @@
 package projectOpenCard.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
 
 import java.util.List;
@@ -14,15 +16,6 @@ public class ProductPage {
 
         PageFactory.initElements(DriverThreadLocal.getDriver(), this);
     }
-
-
-
-
-    @FindBy(linkText = "Desktops")
-    public WebElement desktops;    // buraya mouse move to yapmak lazım. hover için
-
-    @FindBy(linkText = "Show All Desktops")
-    public WebElement showAllDesktops;   // hover ile buraya gelip tıkla
 
     @FindBy(xpath = "//div[@class='image']")
     public List<WebElement> allProductsName;  // liste şeklinde 12 tane ürünün isimlerine tıklama yaparak ürünün sayfasına girebiliriz
@@ -107,8 +100,9 @@ public class ProductPage {
     public void showAllDesktopMethod(WebDriver driver) {
 
         Actions actions = new Actions(driver);
-        actions.moveToElement(desktops).perform();
-        actions.click(showAllDesktops).perform();
+        HomePage homePage = new HomePage();
+        actions.moveToElement(homePage.desktops).perform();
+        actions.click(homePage.showAllDesktops).perform();
 
     }
 
@@ -157,6 +151,14 @@ public class ProductPage {
             element = viewAllReviews.get(1);
         }
         return element;
+    }
+
+    public void login(WebDriver driver) {
+
+        driver.get(ConfigReader.getProperty("login_url"));
+        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
+        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
+        driver.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
 
