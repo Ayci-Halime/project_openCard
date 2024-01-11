@@ -19,7 +19,7 @@ public class ProductComparisonTest {
 
         driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
 
-        productPage.showAllDesktops(driver);
+        productPage.showAllDesktopMethod(driver);
         assertTrue(productPage.compareButton.get(0).isDisplayed());
         driver.quit();
     }
