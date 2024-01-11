@@ -47,7 +47,6 @@ public class RegisterPage {
     @FindBy (tagName = "h1")
     public WebElement verificationOfCreation;    // hesap oluşturunca, bu elementin text'ini al ve .contains("Created!") ile verify et
 
-
     @FindBy(xpath = "//ul[@class='breadcrumb']//following::div")
     public WebElement warningMessage;  // aynı mail ile ikinci kez kayıt yapılmaya çalışınca çıkan uyarının locati
 
@@ -65,9 +64,6 @@ public class RegisterPage {
 
     @FindBy (xpath = "//div[@class='text-danger']")
     public WebElement passwordErrorMessage;
-
-//    @FindBy (xpath = "//div[@class='text-danger']")
-//    public WebElement passConfirmErrorMessage;
 
     @FindBy(xpath = "//ul[@class='breadcrumb']//following::div")
     public WebElement privaciyPolicyErrorMessage;
