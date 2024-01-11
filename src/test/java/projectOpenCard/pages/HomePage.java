@@ -48,7 +48,31 @@ public class HomePage {
     @FindBy(linkText="MP3 Players")
     public WebElement mp3Players;
 
+    @FindBy(xpath="//input[@name='search']")
+    public WebElement searchBox;
 
+    @FindBy(xpath="(//button[@type='button'])[4]")
+    public WebElement searchIcon;
+
+    @FindBy(xpath="//div[@id='cart']//child::button")
+    public WebElement items;
+
+    @FindBy(id="wishlist-total")
+    public WebElement wishList;
+
+    @FindBy(xpath="//span[text()='My Account']")
+    public WebElement myAccount;
+
+    //   @FindBy(linkText = "My Account") yukardaki ile ayni islem
+
+    @FindBy(xpath="//span[text()='Shopping Cart']")
+    public WebElement shoppingCart;
+
+    @FindBy(xpath="//a[text()='Register']")
+    public WebElement myAccountRegister;
+
+    @FindBy(xpath="//a[text()='Login']")
+    public WebElement myAccountLogin;
 
 
 
