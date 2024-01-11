@@ -20,10 +20,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -49,10 +47,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -88,10 +84,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -130,10 +124,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -169,10 +161,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -208,10 +198,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -247,10 +235,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -286,10 +272,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -326,10 +310,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -362,10 +344,8 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        productPage.login(driver);
+        /////////////
 
         productPage.showAllDesktopMethod(driver);
 
@@ -654,7 +634,7 @@ public class ProductTest {
         productPage.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(1);
+        productPage.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -745,6 +725,42 @@ public class ProductTest {
 
         //Kullanıcı ürün değerlendirmesi yaptığını doğrular
         Assert.assertTrue(productPage.reviewConfirmationText.getText().contains("submitted"),"Review confirmation is not done");
+
+        DriverThreadLocal.closeBrowser();
+
+    }
+
+    @Test
+    public void TC_009_21() {
+        // -Kullanıcılar, login olduktan sonra, ürün sayfalarında diğer kullanıcıların
+        // derecelendirmelerini ve yorumlarını görebilmelidir.
+
+        //  ******** !!! BURDA BUG VAR. TEST FAIL OLUYOR  ********
+
+
+        // Önşart olarak önce sonra bir yorum yapalım
+        TC_009_18();
+
+        DriverThreadLocal.setDriver();
+        WebDriver driver = DriverThreadLocal.getDriver();
+        ProductPage productPage = new ProductPage();
+
+        // Önşart olarak sonra login olalım
+        productPage.login(driver);
+        ////////
+
+        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
+        productPage.showAllDesktopMethod(driver);
+
+
+        //Kullanıcı yorumları görmek istediği ürünü seçer
+        productPage.selectProductMethod(0);
+
+        //Kullanıcı ürünün altındaki Reviews bölümün tıklar
+        productPage.clickOnReviewSectionMethod();
+
+        //Kullanıcı, diğer kullanıcılar tarafından yapılan yorumları görür
+        Assert.assertTrue(!productPage.viewAllReviewsMethod().getText().contains("0"), "Reviews from other users are not displayed");
 
         DriverThreadLocal.closeBrowser();
 
