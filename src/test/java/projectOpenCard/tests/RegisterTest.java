@@ -13,8 +13,6 @@ import projectOpenCard.utilities.DriverThreadLocal;
 
 public class RegisterTest {
 
-
-
     @Test
     public void TC_004_01 () {
         // TC_004_01 Kullanıcı, kayıt formunu doldurarak yeni bir hesap oluşturabilmelidir.
