@@ -1,17 +1,21 @@
 package projectOpenCard.tests;
 
-import org.openqa.selenium.By;
+
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import projectOpenCard.pages.ProductPage;
 import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
+import projectOpenCard.utilities.ReusableMethods;
 
 
 public class ProductTest {
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_01() {
         //-Kullanıcılar, login oldukları zaman ürünler için derecelendirme ve yorumlar eklemek istediğinde,
         // kullanıcının adı review section'ın your name kısmında görülmelidir.
@@ -20,13 +24,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -39,6 +43,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_009_02() {
         //-Kullanıcılar, login oldukları zaman ürünler için derecelendirme ve yorumlar ekleyebilmelidir.
 
@@ -47,13 +52,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -75,6 +80,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_03() {
         // Kullanıcılar login oldukları zaman, your name alanını boş bırakırsa,
         // ürünler için derecelendirme ve yorumlar ekleyememelidir.
@@ -84,13 +90,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -115,6 +121,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_04() {
         // Kullanıcılar login oldukları zaman, your review alanını boş bırakırsa,
         // ürünler için derecelendirme ve yorumlar ekleyememelidir.
@@ -124,13 +131,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -152,6 +159,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_05() {
         // Kullanıcılar login oldukları zaman, your review alanına girdikleri metin 25 karakterten daha az ise,
         // ürünler için derecelendirme ve yorumlar ekleyememelidir.
@@ -161,13 +169,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -189,6 +197,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_06() {
         // Kullanıcılar login oldukları zaman, your review alanına girdikleri metin 25 karakter ve daha fazla ise,
         // ürünler için derecelendirme ve yorumlar ekleyebilmelidir.
@@ -198,13 +207,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -226,6 +235,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_07() {
         // Kullanıcılar login oldukları zaman, your review alanına girdikleri metin 1000 karakter ve daha az ise,
         // ürünler için derecelendirme ve yorumlar ekleyebilmelidir.
@@ -235,13 +245,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -263,6 +273,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_08() {
         //-Kullanıcılar login oldukları zaman, your review alanına girdikleri metin 1000 karakter daha fazla ise,
         // ürünler için derecelendirme ve yorumlar ekleyememelidir.
@@ -272,13 +283,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -301,6 +312,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_09() {
         // -Kullanıcılar login oldukları zaman, review alanındaki rating radio buttonunu seçmez ise,
         // ürünler için derecelendirme ve yorumlar yapamamalıdır.
@@ -310,13 +322,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -335,6 +347,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_009_10() {
         // -Kullanıcılar login oldukları zaman, ürünün sayfasında add to cart butonunun altında write a review linkine
         // tıklayarak da ürünler için derecelendirme ve yorumlar yapabilmelidirler
@@ -344,13 +357,13 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         // Ürünün add to cart butonunun altında write a review linkine tıklar
         productPage.writeReviewUnderAddToCartButton.click();
@@ -373,6 +386,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_009_11() {
         //Kullanıcılar, login olmadan ürünler için derecelendirme ve yorumlar eklemek istediğinde,
         //review section'ın your name kısmının boş olduğu görülmelidir.
@@ -381,11 +395,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -398,6 +412,7 @@ public class ProductTest {
 
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_12() {
         //-Kullanıcılar login olmadan, your review alanına girdikleri metin 25 karakterten
         // daha az ise, ürünler için derecelendirme ve yorumlar ekleyememelidir.
@@ -406,11 +421,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -434,6 +449,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_13() {
         //Kullanıcılar login olmadan, your review alanına girdikleri metin 25 karakter ve
         // daha fazla ise, ürünler için derecelendirme ve yorumlar ekleyebilmelidir.
@@ -442,11 +458,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -471,6 +487,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_14() {
         //-Kullanıcılar login olmadan, your review alanına girdikleri metin 100 karakter ve daha az ise,
         // ürünler için derecelendirme ve yorumlar ekleyebilmelidir.
@@ -479,11 +496,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -508,6 +525,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_15() {
         //Kullanıcılar login olmadan, your review alanına girdikleri metin 100 karakter daha fazla ise,
         // ürünler için derecelendirme ve yorumlar ekleyememelidir.
@@ -516,11 +534,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -546,6 +564,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_16() {
         // Kullanıcılar login olmadan, review kısmındaki your name alanına 3 karakterden daha az kullanıcı adı girerlerse,
         // ürünler için derecelendirme ve yorumlar yapamamalıdır.
@@ -554,11 +573,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -584,6 +603,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_17() {
         //-Kullanıcılar login olmadan, review kısmındaki your name alanına 25 karakterden fazla kullanıcı adı girerlerse,
         // ürünler için derecelendirme ve yorumlar yapamamalıdır.
@@ -592,11 +612,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -622,6 +642,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_18() {
         // Kullanıcılar login olmadan, review kısmındaki your name alanına 3 karakter uzunluğunda kullanıcı adı girerlerse,
         // ürünler için derecelendirme ve yorumlar yapabilmelidirler.
@@ -630,11 +651,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -660,6 +681,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_19() {
         // Kullanıcılar login olmadan, review alanındaki rating radio buttonunu seçmez ise,
         // ürünler için derecelendirme ve yorumlar yapamamalıdır.
@@ -668,11 +690,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();
@@ -694,6 +716,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_20() {
         //-Kullanıcılar login olmadan, ürünün sayfasında add to cart butonunun altında write a review linkine
         // tıklayarak da ürünler için derecelendirme ve yorumlar yapabilmelidirler
@@ -702,11 +725,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Add to cart butonunun altındaki write a review linkine tıklar
         productPage.writeReviewUnderAddToCartButton.click();
@@ -731,6 +754,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_009_21() {
         // -Kullanıcılar, login olduktan sonra, ürün sayfalarında diğer kullanıcıların
         // derecelendirmelerini ve yorumlarını görebilmelidir.
@@ -746,15 +770,15 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Önşart olarak sonra login olalım
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         ////////
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
 
         //Kullanıcı yorumları görmek istediği ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Kullanıcı ürünün altındaki Reviews bölümün tıklar
         productPage.clickOnReviewSectionMethod();
@@ -768,6 +792,7 @@ public class ProductTest {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_009_22() {
         // -Kullanıcılar, login olmadan, ürün sayfalarında diğer kullanıcıların derecelendirmelerini ve yorumlarını görebilmelidir.
 
@@ -781,12 +806,12 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
 
         //Kullanıcı yorumları görmek istediği ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Kullanıcı ürünün altındaki Reviews bölümün tıklar
         productPage.clickOnReviewSectionMethod();
@@ -799,6 +824,7 @@ public class ProductTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_009_23() {
         // -Kullanıcılar login olmadan, review kısmındaki your name alanına 25 karakter uzunluğunda kullanıcı adı girerlerse,
         // ürünler için derecelendirme ve yorumlar yapabilmelidirler.
@@ -807,11 +833,11 @@ public class ProductTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage = new ProductPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
-        productPage.showAllDesktopMethod(driver);
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        ReusableMethods.showAllDesktopMethod(driver);
 
         //Kullanıcı ürünü seçer
-        productPage.selectProductMethod(0);
+        ReusableMethods.selectProductMethod(0);
 
         //Ürünün description section'ının yanındaki Reviews bölümüne tıklar
         productPage.clickOnReviewSectionMethod();

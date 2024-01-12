@@ -3,6 +3,8 @@ package projectOpenCard.tests;
 
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -13,7 +15,32 @@ import projectOpenCard.utilities.DriverThreadLocal;
 
 public class RegisterTest {
 
+    /*
+        --> Allure Rapor almanın yolları <--
+     1. pom.XML dosyasında, çalışacak class'ın source root'unu belirtiyoruz.
+     Sonra terminal'i açıp, mvn test yazıp testi çalıştırırız.
+     Sonra test bitince terminale allure serve yazıp raporu chrome da açarız.
+
+     2. Test class'ı üzerinden bütün testleri çalıştırırız.
+     Sonra terminale geçip allure serve yazıp chrome da raporu açarız.
+
+     3. Bir tane .xml files dosyası oluşturuyoruz. Bu xml dosyası ile paralel çalıştıracak şekilde
+     ayarlamayı yapıyoruz. Istersek bu xml file ile test metotları gruplandırma da yapabiliriz.
+     Daha sonra xml file üzerinden testi çalıştırıyoruz. En sonunda terminale geçip, allure serve
+     yazarak raporu chrome dan açıyoruz.
+
+     4. Bir üst madde de oluşturmuş olduğumuz xml file dosyasının source root yolunu
+     pom.xml plugin içine belirtiyoruz. Yine bu xml file içinde testlerimizi ister gruplandırma ister de class
+     olarak yazabiliriz. Ister testimizi, xml file içinde paralel olarak belirtebiliriz istersek de
+     pom.xml içindeki plugin içinde paralel olarak belirtebiliriz.
+     Daha sonra bu xml file'ın yolunu, pom.xml içindeki plugin içinde </suiteXmlFiles> Tag'i içine </suiteXmlFile>
+     Tag'i açıp buraya dosya yolunu yazıyoruz. Daha sonra terminalden mvn test yazıp, testi çalıştırıp, allure serve
+     yazarak da raporu chrome üzerinden açıyoruz.
+     */
+
+
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void TC_004_01 () {
         // TC_004_01 Kullanıcı, kayıt formunu doldurarak yeni bir hesap oluşturabilmelidir.
 
@@ -21,7 +48,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
 
 
@@ -57,6 +84,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_02() {
         // TC_004_02 Kullanıcı, kayıt formunda first name alanını boş bıraktığında, kayıt olmamalıdır.
 
@@ -64,7 +92,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
 
 //        Kullanıcı last name alanını doldurur
@@ -96,6 +124,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_03() {
 
         // TC_004_03 Kullanıcı, kayıt formunda last name alanını boş bıraktığında, kayıt olmamalıdır.
@@ -104,7 +133,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -136,6 +165,7 @@ public class RegisterTest {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_04() {
 
         // TC_004_04 Kullanıcı, kayıt formunda email alanını boş bıraktığında, kayıt olmamalıdır.
@@ -144,7 +174,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -175,6 +205,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_05() {
 
         // TC_004_05 Kullanıcı, kayıt formunda password alanını boş bıraktığında, kayıt olmamalıdır.
@@ -183,7 +214,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -211,6 +242,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_06() {
 
         // TC_004_06 Kullanıcı, kayıt formunda telefon alanını boş bıraktığında, kayıt olmamalıdır.
@@ -219,7 +251,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -250,6 +282,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_07() {
         // TC_004_07 Kullanıcı, kayıt formunda password alanına 4 karakterden az veri girdiğinde, kayıt olmamalıdır.
 
@@ -257,7 +290,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -291,6 +324,7 @@ public class RegisterTest {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_08() {
         // TC_004_08 Kullanıcı, kayıt formunda password alanına en az 4 karakter veri girdiğinde, kayıt olmalıdır.
 
@@ -298,7 +332,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -332,6 +366,7 @@ public class RegisterTest {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_09() {
         // TC_004_09 Kullanıcı, kayıt formunda password alanına en fazla 20 karakter veri girdiğinde, kayıt olmalıdır.
 
@@ -339,7 +374,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -372,6 +407,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_10() {
         // TC_004_10 Kullanıcı, kayıt formunda password alanına 20 karakterden fazla veri girdiğinde, kayıt olmamalıdır.
         //  !!! bu case 'de bug var. max 20 karakter şifre kabul etmesi gerekirken, 20 karakterden fazla şifreyi de kabul ediyor
@@ -380,7 +416,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -414,6 +450,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_11() {
         // TC_004_11 Kullanıcı, kayıt formunda privacy policy checkbox'ını işaretlemediği sürece, kayıt olmamalıdır.
 
@@ -421,7 +458,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -452,6 +489,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.TRIVIAL)
     public void TC_004_12() {
         // TC_004_12 Kullanıcı, kayıt formunu doldurduğunda News Letter Subscribe alanını yes olarak işaretleyerek kayıt olabilmelidir.
 
@@ -459,7 +497,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -496,6 +534,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.TRIVIAL)
     public void TC_004_13() {
         // TC_004_13 Kullanıcı, kayıt formunu doldurduğunda News Letter Subscribe alanını no olarak işaretleyerek kayıt olabilmelidir.
 
@@ -503,7 +542,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -540,6 +579,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void TC_004_14() {
         // TC_004_14 Kullanıcı, kayıt olduktan sonra geçerli email ve şifre ile giriş yapabilmelidir.
 
@@ -547,7 +587,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı geçerli mail adresini email adresi alanına girer
 
@@ -563,6 +603,7 @@ public class RegisterTest {
 
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void TC_004_15() {
         // TC_004_15 Kullanıcı, daha önce kayıt olduğu bir mail adresi ile ikinci bir kullanıcı oluşturmamalıdır.
 
@@ -570,7 +611,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -607,6 +648,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_004_16() {
         // TC_004_16 Kullanıcı, first name alanına 32 karakter uzunluğunda isim girdiğinde register olmalıdır
 
@@ -614,7 +656,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name_TC_004_16"));
@@ -651,6 +693,7 @@ public class RegisterTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void TC_004_17() {
         // TC_004_17 Kullanıcı, first name alanına 32 karakterden daha uzun isim girdiğinde register olmamalıdır
 
@@ -658,7 +701,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name_TC_004_17"));
@@ -696,6 +739,7 @@ public class RegisterTest {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     public void TC_004_18() {
         // TC_004_18 Kullanıcı, first name alanına 1 karakter uzunluğunda isim girdiğinde register olmalıdır
 
@@ -703,7 +747,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_url"));
+        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name_TC_004_18"));

@@ -97,20 +97,6 @@ public class ProductPage {
     public List<WebElement> stockAvailability;  // Liste'nin size'ını alalım. Eğer size 4 ise, 4 üncü eleman; 3 ise 3'üncü eleman bize stok durumunu bildirir.
 
 
-    public void showAllDesktopMethod(WebDriver driver) {
-
-        Actions actions = new Actions(driver);
-        HomePage homePage = new HomePage();
-        actions.moveToElement(homePage.desktops).perform();
-        actions.click(homePage.showAllDesktops).perform();
-
-    }
-
-    public void selectProductMethod (int i) {
-        allProductsName.get(i).click();  // bütün ürünler listede olduğu için, bu metod ile istenilen ürüne tıklama yapılabilir
-
-    }
-
     public void addToCartMethod (int i) {
         addToCartButton.get(i).click();  // cart butonları liste de olduğu için, metod ile istenilen indexteki ürüne ait butona tıklanabilir
 
@@ -153,13 +139,6 @@ public class ProductPage {
         return element;
     }
 
-    public void login(WebDriver driver) {
-
-        driver.get(ConfigReader.getProperty("login_url"));
-        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("login_email"));
-        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("login_password"));
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
-    }
 
 
 
