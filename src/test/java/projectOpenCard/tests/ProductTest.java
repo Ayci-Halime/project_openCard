@@ -24,7 +24,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -52,7 +52,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -90,7 +90,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -131,7 +131,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -169,7 +169,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -207,7 +207,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -245,7 +245,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -283,7 +283,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -322,7 +322,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
@@ -357,7 +357,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Ön koşullar login olma
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         /////////////
 
         ReusableMethods.showAllDesktopMethod(driver);
