@@ -32,10 +32,11 @@ public class ProductComparisonTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         ProductPage productPage=new ProductPage();
         ProductComparisonPage comparisonPage=new ProductComparisonPage();
+
 //        Kullanici URL'e gider
         driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
 //        Kullanici schowallDesktop a tiklar.
-        productPage.showAllDesktopMethod(driver);
+       ReusableMethods.showAllDesktopMethod(driver);
 //        Apple monitörün de karsilastir butonu tiklar.
         productPage.compareProductMethod(0);
 //        sayfada ürün karsilastirma listesine eklendi uyarisini görüntüler.(product comparison!)
@@ -52,7 +53,7 @@ public class ProductComparisonTest {
 //        Kullanici URL'e gider
         driver.get(ConfigReader.getProperty("automationlabs_homepage_url"));
 //        Kullanici schowallDesktop a tiklar.
-        productPage.showAllDesktopMethod(driver);
+        ReusableMethods.showAllDesktopMethod(driver);
 //        Apple monitörün de karsilastir butonu tiklar.
         productPage.compareProductMethod(0);
 //        sayfada ürün karsilastirma listesine eklendi uyarisini görüntüler.
