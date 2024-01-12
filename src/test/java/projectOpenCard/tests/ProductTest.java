@@ -770,7 +770,7 @@ public class ProductTest {
         ProductPage productPage = new ProductPage();
 
         // Önşart olarak sonra login olalım
-        productPage.login(driver);
+        ReusableMethods.login(driver);
         ////////
 
         driver.get(ConfigReader.getProperty("homepage_url"));
