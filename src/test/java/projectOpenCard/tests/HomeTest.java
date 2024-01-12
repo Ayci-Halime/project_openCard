@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import projectOpenCard.pages.HomePage;
+import projectOpenCard.pages.ProductPage;
 import projectOpenCard.pages.RegisterPage;
 import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
@@ -39,5 +40,21 @@ public class HomeTest {
 
         driver.get(ConfigReader.getProperty("homepage_url"));
 
+    }
+    @Test
+    public void sepeteUrunEkleme() throws InterruptedException {
+        DriverThreadLocal.setDriver();
+        WebDriver driver = DriverThreadLocal.getDriver();
+        driver.get(ConfigReader.getProperty("homepage_url"));
+
+        HomePage homepage = new HomePage();
+        ProductPage productPage = new ProductPage();
+        productPage.addToCartMethod(0);
+
+        System.out.println(homepage.item.getText());
+        Thread.sleep(4000);
+
+        Assert.assertTrue(homepage.item.getText().contains("1 item(s)"));
+      //  DriverThreadLocal.closeBrowser();
     }
 }

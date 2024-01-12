@@ -75,7 +75,8 @@ public class HomePage {
     public WebElement myAccountLogin;
 
 
-
+    @FindBy(id="cart-total")
+    public WebElement item;//Loginsiz sepete urun ekleme
 
 
 
