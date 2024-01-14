@@ -5,9 +5,12 @@ package projectOpenCard.tests;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import projectOpenCard.pages.LoginPage;
 import projectOpenCard.pages.RegisterPage;
 import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
@@ -48,9 +51,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
-
-
+        registerPage.go_to_register_page(driver);
 
 //        Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -92,7 +93,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
 
 //        Kullanıcı last name alanını doldurur
@@ -133,7 +134,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -174,7 +175,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -214,7 +215,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -251,7 +252,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -290,7 +291,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -332,7 +333,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -374,7 +375,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -416,7 +417,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -458,7 +459,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -497,7 +498,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -542,7 +543,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -585,17 +586,23 @@ public class RegisterTest {
 
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
-        RegisterPage registerPage = new RegisterPage();
+        LoginPage loginPage = new LoginPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        driver.get(ConfigReader.getProperty("login_url"));
 
         //Kullanıcı geçerli mail adresini email adresi alanına girer
+        driver.findElement(By.id("input-email")).sendKeys(ConfigReader.getProperty("email_first_register"));
 
         //Kullaıncı geçerli şifresini password alanına girer
+        driver.findElement(By.id("input-password")).sendKeys(ConfigReader.getProperty("password"));
 
         //Kullanıcı login butonuna tıklar
+        driver.findElement(By.xpath("//input[@value='Login']")).click();
 
         //Başarılı bir şekilde login olduğunu verify eder
+        WebElement logout = driver.findElement(By.linkText("Logout"));
+        Assert.assertTrue(logout.isDisplayed(),"Logout button is not displayed");
+        logout.click();
 
         DriverThreadLocal.closeBrowser();
 
@@ -611,7 +618,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
@@ -656,7 +663,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name_TC_004_16"));
@@ -701,7 +708,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name_TC_004_17"));
@@ -747,7 +754,7 @@ public class RegisterTest {
         WebDriver driver = DriverThreadLocal.getDriver();
         RegisterPage registerPage = new RegisterPage();
 
-        driver.get(ConfigReader.getProperty("automationlabs_register_url"));
+        registerPage.go_to_register_page(driver);
 
         //Kullanıcı first name alanını doldurur
         registerPage.firstname.sendKeys(ConfigReader.getProperty("first_name_TC_004_18"));

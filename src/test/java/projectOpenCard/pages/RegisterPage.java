@@ -1,10 +1,16 @@
 package projectOpenCard.pages;
 
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
+
+import java.time.Duration;
 
 public class RegisterPage {
 
@@ -67,6 +73,21 @@ public class RegisterPage {
 
     @FindBy(xpath = "//ul[@class='breadcrumb']//following::div")
     public WebElement privaciyPolicyErrorMessage;
+
+
+    public void go_to_register_page(WebDriver driver) {
+
+        HomePage homePage = new HomePage();
+        driver.get(ConfigReader.getProperty("homepage_url"));
+
+        homePage.myAccount.click();
+        homePage.myAccountRegister.click();
+
+        RegisterPage registerPage = new RegisterPage();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(registerPage.firstname));
+
+    }
 
 
 
