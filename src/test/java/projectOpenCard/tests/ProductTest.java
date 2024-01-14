@@ -64,7 +64,7 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı your review alanına ürün değerlendirmesini girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_02"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(2);
@@ -105,7 +105,7 @@ public class ProductTest {
         productPage.nameFieldInReviews.clear();
 
         //Kullanıcı your review alanına ürün değerlendirmesini girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_03"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(2);
@@ -334,7 +334,7 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_09"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı continue butonuna tıklar
         productPage.continueButtonInReview.click();
@@ -369,7 +369,7 @@ public class ProductTest {
         productPage.writeReviewUnderAddToCartButton.click();
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_10"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(4);
@@ -431,7 +431,7 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı your name alanını girer
-        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_12"));
+        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_common"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
         productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_12"));
@@ -468,7 +468,7 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı your name alanını girer
-        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_13"));
+        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_common"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
         productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_13"));
@@ -506,7 +506,7 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı your name alanını girer
-        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_14"));
+        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_common"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
         productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_14"));
@@ -544,7 +544,7 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı your name alanını girer
-        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_15"));
+        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_common"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
         productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_15"));
@@ -586,7 +586,7 @@ public class ProductTest {
         productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_16"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_16"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(3);
@@ -625,7 +625,7 @@ public class ProductTest {
         productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_17"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_17"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(2);
@@ -664,7 +664,7 @@ public class ProductTest {
         productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_18"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_18"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(2);
@@ -700,10 +700,10 @@ public class ProductTest {
         productPage.clickOnReviewSectionMethod();
 
         //Kullanıcı your name alanını girer
-        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_19"));
+        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_common"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_19"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı continue butonuna tıklar
         productPage.continueButtonInReview.click();
@@ -735,10 +735,10 @@ public class ProductTest {
         productPage.writeReviewUnderAddToCartButton.click();
 
         //Kullanıcı your name alanını girer
-        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_20"));
+        productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_common"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_20"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(3);
@@ -846,7 +846,7 @@ public class ProductTest {
         productPage.nameFieldInReviews.sendKeys(ConfigReader.getProperty("name_field_TC_009_23"));
 
         //Kullanıcı değerlendirme metnini your review alanına girer
-        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_23"));
+        productPage.textFieldInReviews.sendKeys(ConfigReader.getProperty("text_field_TC_009_common"));
 
         //Kullanıcı, değerlendirmesine göre rating bölümündeki radio button'larından birini seçer
         productPage.clickOnRatingRadioButtonMethod(4);
