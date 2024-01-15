@@ -83,10 +83,6 @@ public class HomePage {
     @FindBy(xpath = "//div[@id='content']/child::p")
     public WebElement sepettekiUrun;//sepete urun ekleme dogrulama
 
-    @FindBy(id="cart-total")
-    public WebElement item;//Loginsiz sepete urun ekleme
-
-
     @FindBy(xpath = "//button[@data-original-title='Remove']")
     public WebElement remove;//silme
 
