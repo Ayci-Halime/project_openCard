@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import projectOpenCard.pages.HomePage;
 import projectOpenCard.pages.ProductPage;
 import projectOpenCard.pages.ShoppingCartPage;
+import projectOpenCard.pages.RegisterPage;
 import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
 
@@ -57,6 +58,7 @@ public class HomeTest {
         Thread.sleep(4000);
 
         Assert.assertTrue(homepage.item.getText().contains("1 item(s)"));
+
         //  DriverThreadLocal.closeBrowser();
     }
 
@@ -120,6 +122,10 @@ public class HomeTest {
         DriverThreadLocal.closeBrowser();
 
 
+    }
+
+
+      //  DriverThreadLocal.closeBrowser();
     }
 
 }
