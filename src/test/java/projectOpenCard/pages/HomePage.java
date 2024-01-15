@@ -13,6 +13,7 @@ public class HomePage {
 
         PageFactory.initElements(DriverThreadLocal.getDriver(), this);
     }
+
     @FindBy(xpath = "//ul[@class='list-inline']/child::li")
     public List<WebElement> ustMenu;
     //List donduruyor; 1.index ecount 2.index wishlist 3.index shoppingCart
@@ -26,58 +27,62 @@ public class HomePage {
     @FindBy(linkText = "Components")
     public WebElement components;
 
-    @FindBy( tagName= "h2")
+    @FindBy(tagName = "h2")
     public WebElement dogrulamaMesaji;
 
-    @FindBy(xpath="//a[text()='Show All Desktops']")
+    @FindBy(xpath = "//a[text()='Show All Desktops']")
     public WebElement showAllDesktops;
 
 
-    @FindBy(linkText="Tablets")
+    @FindBy(linkText = "Tablets")
     public WebElement tablets;
 
-    @FindBy(linkText="Software")
+    @FindBy(linkText = "Software")
     public WebElement software;
 
-    @FindBy(linkText="Phones & PDAs")
+    @FindBy(linkText = "Phones & PDAs")
     public WebElement phonesAndPDAs;
 
-    @FindBy(linkText="Cameras")
+    @FindBy(linkText = "Cameras")
     public WebElement cameras;
 
-    @FindBy(linkText="MP3 Players")
+    @FindBy(linkText = "MP3 Players")
     public WebElement mp3Players;
 
-    @FindBy(xpath="//input[@name='search']")
+    @FindBy(xpath = "//input[@name='search']")
     public WebElement searchBox;
 
-    @FindBy(xpath="(//button[@type='button'])[4]")
+    @FindBy(xpath = "(//button[@type='button'])[4]")
     public WebElement searchIcon;
 
-    @FindBy(xpath="//div[@id='cart']//child::button")
+    @FindBy(xpath = "//div[@id='cart']//child::button")
     public WebElement items;
 
-    @FindBy(id="wishlist-total")
+    @FindBy(id = "wishlist-total")
     public WebElement wishList;
 
-    @FindBy(xpath="//span[text()='My Account']")
+    @FindBy(xpath = "//span[text()='My Account']")
     public WebElement myAccount;
 
     //   @FindBy(linkText = "My Account") yukardaki ile ayni islem
 
-    @FindBy(xpath="//span[text()='Shopping Cart']")
-    public WebElement shoppingCart;
+    @FindBy(xpath = "//span[text()='Shopping Cart']")
+    public WebElement shoppingCart;//viewCart ile ayni
 
-    @FindBy(xpath="//a[text()='Register']")
+    @FindBy(xpath = "//a[text()='Register']")
     public WebElement myAccountRegister;
 
-    @FindBy(xpath="//a[text()='Login']")
+    @FindBy(xpath = "//a[text()='Login']")
     public WebElement myAccountLogin;
 
 
-    @FindBy(id="cart-total")
+    @FindBy(id = "cart-total")
     public WebElement item;//Loginsiz sepete urun ekleme
 
+    @FindBy(xpath = "//div[@id='content']/child::p")
+    public WebElement sepettekiUrun;//sepete urun ekleme dogrulama
 
+    @FindBy(xpath = "//button[@data-original-title='Remove']")
+    public WebElement remove;//silme
 
 }
