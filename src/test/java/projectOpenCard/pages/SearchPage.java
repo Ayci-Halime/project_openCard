@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import projectOpenCard.utilities.DriverThreadLocal;
 
+import java.util.List;
+
 public class SearchPage {
     public SearchPage() {
 
@@ -39,4 +41,13 @@ public class SearchPage {
     public WebElement category_select;
     @FindBy(id = "button-search")
     public WebElement searchButton;
+
+    @FindBy(id = "input-sort")
+    public WebElement sort_by;
+
+    @FindBy(id = "input-limit")
+    public WebElement show_limit;
+
+    @FindBy (xpath = "//div[@class='product-thumb']//h4")
+    public  List<WebElement>  product_mac;
 }

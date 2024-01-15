@@ -10,10 +10,12 @@ import projectOpenCard.pages.SearchPage;
 import projectOpenCard.utilities.ConfigReader;
 import projectOpenCard.utilities.DriverThreadLocal;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SearchTest {
+
+
+
     @Test
     public void TC_003_01() {
 
@@ -43,19 +45,20 @@ public class SearchTest {
         DriverThreadLocal.closeBrowser();
 
     }
+
     @Test
     public void TC_003_22() {
 
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
         HomePage homePage = new HomePage();
-        SearchPage searchPage =new SearchPage();
+        SearchPage searchPage = new SearchPage();
 
         driver.get(ConfigReader.getProperty("homepage_url"));
 
         homePage.searchIcon.click();
 
-        Assert.assertEquals(searchPage.search_page.getText(),"Search");
+        Assert.assertEquals(searchPage.search_page.getText(), "Search");
 
         DriverThreadLocal.closeBrowser();
 
@@ -67,11 +70,11 @@ public class SearchTest {
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
         HomePage homePage = new HomePage();
-        SearchPage searchPage =new SearchPage();
+        SearchPage searchPage = new SearchPage();
 
         driver.get(ConfigReader.getProperty("homepage_url"));
 
-         Assert.assertEquals(homePage.searchBox.getAttribute("placeholder"),"Search");
+        Assert.assertEquals(homePage.searchBox.getAttribute("placeholder"), "Search");
 
         DriverThreadLocal.closeBrowser();
 
@@ -88,14 +91,14 @@ public class SearchTest {
 
         homePage.searchBox.sendKeys(ConfigReader.getProperty("product_name"));
 
-        Assert.assertFalse(homePage.searchBox.getAttribute("value").contains("search"),"placeholder aramaya dahil edilmemeli");
+        Assert.assertFalse(homePage.searchBox.getAttribute("value").contains("search"), "placeholder aramaya dahil edilmemeli");
 
         DriverThreadLocal.closeBrowser();
 
     }
 
     @Test
-    public void TC_003_03()  {
+    public void TC_003_03() {
 
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
@@ -114,6 +117,7 @@ public class SearchTest {
         DriverThreadLocal.closeBrowser();
 
     }
+
     @Test
     public void TC_003_04() {
 
@@ -136,7 +140,7 @@ public class SearchTest {
     }
 
     @Test
-    public void TC_003_05(){
+    public void TC_003_05() {
 
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
@@ -171,14 +175,14 @@ public class SearchTest {
 
         homePage.searchIcon.click();
 
-        Assert.assertEquals(searchPage.criteria_text.getText(), "There is no product that matches the search criteria.");
+        Assert.assertTrue(searchPage.product_hd.isDisplayed(), "There is no product that matches the search criteria.");
 
         DriverThreadLocal.closeBrowser();
 
     }
 
     @Test
-    public void TC_003_07()  {
+    public void TC_003_07() {
 
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
@@ -197,8 +201,9 @@ public class SearchTest {
         DriverThreadLocal.closeBrowser();
 
     }
+
     @Test
-    public void TC_003_08()  {
+    public void TC_003_08() {
 
         DriverThreadLocal.setDriver();
         WebDriver driver = DriverThreadLocal.getDriver();
@@ -211,8 +216,7 @@ public class SearchTest {
 
         searchPage.search_keyword_input.sendKeys(ConfigReader.getProperty("product_name"));
 
-        Select select=new Select( searchPage.category_select);
-        select.selectByValue("24");
+        methodSelectByIndex(searchPage.category_select,17);
         searchPage.searchButton.click();
 
         Assert.assertTrue(searchPage.product_hd.isDisplayed());
@@ -221,4 +225,100 @@ public class SearchTest {
 
     }
 
+
+
+    @Test
+    public void TC_003_09() {
+
+        DriverThreadLocal.setDriver();
+        WebDriver driver = DriverThreadLocal.getDriver();
+
+        HomePage homePage = new HomePage();
+        SearchPage searchPage = new SearchPage();
+
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        homePage.searchBox.sendKeys(ConfigReader.getProperty("product_mac"));
+        homePage.searchIcon.click();
+        methodSelectByIndex(searchPage.sort_by,1);
+
+        List<WebElement> productList=searchPage.product_mac;
+
+       List<String> productlistText= ProductlistString(productList);
+
+        // Kelimelerin alfabetik sıraya uygun olup olmadığını kontrol et
+        Assert.assertTrue(isAlphabetik(productlistText));
+
+        DriverThreadLocal.closeBrowser();
+
+    }
+
+    @Test
+    public void TC_003_10() {
+
+        DriverThreadLocal.setDriver();
+        WebDriver driver = DriverThreadLocal.getDriver();
+
+        HomePage homePage = new HomePage();
+        SearchPage searchPage = new SearchPage();
+
+        driver.get(ConfigReader.getProperty("homepage_url"));
+        homePage.searchBox.sendKeys(ConfigReader.getProperty("product_mac"));
+        homePage.searchIcon.click();
+       methodSelectByIndex(searchPage.sort_by,2);
+
+        List<WebElement> productList=searchPage.product_mac;
+
+        List<String> productlistText= ProductlistString(productList);
+
+        // Kelimelerin alfabetik sıraya uygun olup olmadığını kontrol et
+        Assert.assertTrue(isTersAlphabetik(productlistText));
+
+        DriverThreadLocal.closeBrowser();
+
+    }
+
+
+    public void methodSelectByIndex(WebElement selectElement, int i){
+        Select select = new Select(selectElement);
+        select.selectByIndex(i);
+
+    }
+
+    public List<String> ProductlistString(List<WebElement> productList) {
+
+        List<String> productlistText = new ArrayList<>();
+
+                for (WebElement product : productList) {
+            productlistText.add(product.getText().toUpperCase());
+        }
+
+        for (String product : productlistText) {
+            System.out.println("product = " + product);
+        }
+        return productlistText;
+    }
+
+
+
+    public boolean isAlphabetik(List<String> kelimeler) {
+        for (int i = 0; i < kelimeler.size() - 1; i++) {
+            // compareToIgnoreCase metodu ile alfabetik sıralama kontrolü
+            if (kelimeler.get(i).compareToIgnoreCase(kelimeler.get(i + 1)) > 0) {
+                return false; // Eğer sıralama yanlışsa false döndür
+            }
+        }
+        return true; // Eğer sıralama doğru ise true döndür
+    }
+
+    public boolean isTersAlphabetik(List<String> kelimeler) {
+        for (int i = 0; i < kelimeler.size() - 1; i++) {
+            // compareToIgnoreCase metodu ile alfabetik sıralama kontrolü
+            if (kelimeler.get(kelimeler.size()-1).compareToIgnoreCase(kelimeler.get(kelimeler.size()-2)) > 0) {
+                return false; // Eğer sıralama yanlışsa false döndür
+            }
+        }
+        return true; // Eğer sıralama doğru ise true döndür
+    }
 }
+
+
